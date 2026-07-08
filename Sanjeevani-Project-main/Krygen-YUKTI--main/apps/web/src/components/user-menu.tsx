@@ -1,0 +1,65 @@
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { authClient } from "@/lib/auth-client";
+
+import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
+import { useTranslation } from "./language-provider";
+
+export default function UserMenu() {
+  const router = useRouter();
+  const { data: session, isPending } = authClient.useSession();
+  const { t } = useTranslation();
+
+  if (isPending) {
+    return <Skeleton className="h-9 w-24" />;
+  }
+
+  if (!session) {
+    return (
+      <Link href="/login">
+        <Button variant="outline">{t("nav.login")}</Button>
+      </Link>
+    );
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger render={<Button variant="outline" className="max-w-[9.5rem] sm:max-w-[14rem]" />}>
+        <span className="truncate">{session.user.name}</span>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="bg-card">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>{t("auth.roleSelection") === "Select your workspace role" ? "My Account" : "मेरा खाता"}</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>{session.user.email}</DropdownMenuItem>
+          <DropdownMenuItem
+            variant="destructive"
+            onClick={() => {
+              authClient.signOut({
+                fetchOptions: {
+                  onSuccess: () => {
+                    router.push("/");
+                  },
+                },
+              });
+            }}
+          >
+            {t("nav.logout")}
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+

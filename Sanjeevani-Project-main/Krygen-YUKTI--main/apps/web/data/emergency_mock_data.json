@@ -1,0 +1,1069 @@
+{
+  "city": "Prayagraj",
+  "bloodBanks": [
+    {
+      "id": "BB001",
+      "name": "Prayagraj Regional Blood Center",
+      "area": "Civil Lines",
+      "lat": 25.4528,
+      "lon": 81.834,
+      "contact": "+91 9450999111",
+      "operatingHours": "24 Hours Open",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 4,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 22,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 29,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 5,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB002",
+      "name": "Civil Lines Red Cross Bank",
+      "area": "Katra",
+      "lat": 25.4642,
+      "lon": 81.849,
+      "contact": "+91 9889000222",
+      "operatingHours": "08:00 AM - 10:00 PM",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 15,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 16,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 28,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 31,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 6,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 21,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 1,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 19,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB003",
+      "name": "Katra Charitable Blood Bank",
+      "area": "George Town",
+      "lat": 25.4485,
+      "lon": 81.855,
+      "contact": "+91 9123888333",
+      "operatingHours": "08:00 AM - 10:00 PM",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 14,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 6,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 2,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 34,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 1,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 28,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 34,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 4,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB004",
+      "name": "George Town Rotary Blood Center",
+      "area": "Tagore Town",
+      "lat": 25.453,
+      "lon": 81.846,
+      "contact": "+91 9335777444",
+      "operatingHours": "24 Hours Open",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 31,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 1,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 11,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 13,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 20,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 28,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 19,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 30,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB005",
+      "name": "Allahapur Life Saver Bank",
+      "area": "Allahapur",
+      "lat": 25.4545,
+      "lon": 81.869,
+      "contact": "+91 9415666555",
+      "operatingHours": "08:00 AM - 10:00 PM",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 31,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 28,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 4,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 1,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 17,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 7,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 33,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB006",
+      "name": "Jhusi Community Blood Bank",
+      "area": "Jhusi",
+      "lat": 25.439,
+      "lon": 81.903,
+      "contact": "+91 9935555666",
+      "operatingHours": "08:00 AM - 10:00 PM",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 8,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 13,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 13,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 20,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 6,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 35,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 6,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 26,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB007",
+      "name": "Phaphamau Voluntary Donor Center",
+      "area": "Phaphamau",
+      "lat": 25.526,
+      "lon": 81.862,
+      "contact": "+91 9839444777",
+      "operatingHours": "24 Hours Open",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 10,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 27,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 11,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 3,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 2,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 16,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB008",
+      "name": "Naini Industrial Blood Center",
+      "area": "Naini",
+      "lat": 25.396,
+      "lon": 81.866,
+      "contact": "+91 9198333888",
+      "operatingHours": "08:00 AM - 10:00 PM",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 26,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 3,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 19,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 17,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 17,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 3,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 5,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 33,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB009",
+      "name": "Chowk Welfare Blood Bank",
+      "area": "Chowk",
+      "lat": 25.443,
+      "lon": 81.826,
+      "contact": "+91 9305222999",
+      "operatingHours": "08:00 AM - 10:00 PM",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 28,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 3,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 13,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 28,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 5,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 3,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 33,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 32,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "BB010",
+      "name": "Rajapur Lifeline Blood Agency",
+      "area": "Rajapur",
+      "lat": 25.468,
+      "lon": 81.822,
+      "contact": "+91 9889111000",
+      "operatingHours": "24 Hours Open",
+      "emergencyContact": "+91 9110001234",
+      "lastUpdated": "2026-07-08",
+      "inventory": [
+        {
+          "blood_group": "A+",
+          "units": 3,
+          "status": "LOW_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "A-",
+          "units": 33,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B+",
+          "units": 20,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "B-",
+          "units": 15,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB+",
+          "units": 29,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "AB-",
+          "units": 0,
+          "status": "OUT_OF_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O+",
+          "units": 30,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        },
+        {
+          "blood_group": "O-",
+          "units": 29,
+          "status": "IN_STOCK",
+          "last_updated": "2026-07-08"
+        }
+      ]
+    }
+  ],
+  "ambulances": [
+    {
+      "id": "AMB001",
+      "driverName": "Ramesh Kumar",
+      "vehicleNumber": "UP-70-EM-1000",
+      "contact": "+91 9988007766",
+      "type": "BLS",
+      "lat": 25.458131147397665,
+      "lon": 81.82758348916386,
+      "status": "BUSY"
+    },
+    {
+      "id": "AMB002",
+      "driverName": "Suresh Yadav",
+      "vehicleNumber": "UP-70-EM-1001",
+      "contact": "+91 9988017766",
+      "type": "ALS",
+      "lat": 25.46209370521356,
+      "lon": 81.84587403920693,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB003",
+      "driverName": "Amit Mishra",
+      "vehicleNumber": "UP-70-EM-1002",
+      "contact": "+91 9988027766",
+      "type": "ICU",
+      "lat": 25.44578770067301,
+      "lon": 81.84981232208476,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB004",
+      "driverName": "Deepak Gupta",
+      "vehicleNumber": "UP-70-EM-1003",
+      "contact": "+91 9988037766",
+      "type": "Neonatal",
+      "lat": 25.45550944768124,
+      "lon": 81.84904213328967,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB005",
+      "driverName": "Vijay Singh",
+      "vehicleNumber": "UP-70-EM-1004",
+      "contact": "+91 9988047766",
+      "type": "BLS",
+      "lat": 25.448302105293152,
+      "lon": 81.87510911065876,
+      "status": "BUSY"
+    },
+    {
+      "id": "AMB006",
+      "driverName": "Rajesh Tiwari",
+      "vehicleNumber": "UP-70-EM-1005",
+      "contact": "+91 9988057766",
+      "type": "ALS",
+      "lat": 25.43282303698643,
+      "lon": 81.90542964030914,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB007",
+      "driverName": "Sanjay Patel",
+      "vehicleNumber": "UP-70-EM-1006",
+      "contact": "+91 9988067766",
+      "type": "ICU",
+      "lat": 25.518766258833516,
+      "lon": 81.8632930182828,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB008",
+      "driverName": "Anil Sharma",
+      "vehicleNumber": "UP-70-EM-1007",
+      "contact": "+91 9988077766",
+      "type": "Neonatal",
+      "lat": 25.393495819534053,
+      "lon": 81.86076221781542,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB009",
+      "driverName": "Manoj Kushwaha",
+      "vehicleNumber": "UP-70-EM-1008",
+      "contact": "+91 9988087766",
+      "type": "BLS",
+      "lat": 25.44799600169207,
+      "lon": 81.82985477279826,
+      "status": "BUSY"
+    },
+    {
+      "id": "AMB010",
+      "driverName": "Sunil Maurya",
+      "vehicleNumber": "UP-70-EM-1009",
+      "contact": "+91 9988097766",
+      "type": "ALS",
+      "lat": 25.475196311231397,
+      "lon": 81.81761600814258,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB011",
+      "driverName": "Vikram Rathore",
+      "vehicleNumber": "UP-70-EM-1010",
+      "contact": "+91 9988107766",
+      "type": "ICU",
+      "lat": 25.446850396980306,
+      "lon": 81.84138072184852,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB012",
+      "driverName": "Pankaj Pandey",
+      "vehicleNumber": "UP-70-EM-1011",
+      "contact": "+91 9988117766",
+      "type": "Neonatal",
+      "lat": 25.468274043273123,
+      "lon": 81.85043861823473,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB013",
+      "driverName": "Alok Ranjan",
+      "vehicleNumber": "UP-70-EM-1012",
+      "contact": "+91 9988127766",
+      "type": "BLS",
+      "lat": 25.447034706057668,
+      "lon": 81.84808885566308,
+      "status": "BUSY"
+    },
+    {
+      "id": "AMB014",
+      "driverName": "Rahul Verma",
+      "vehicleNumber": "UP-70-EM-1013",
+      "contact": "+91 9988137766",
+      "type": "ALS",
+      "lat": 25.459413387964876,
+      "lon": 81.84018952521645,
+      "status": "AVAILABLE"
+    },
+    {
+      "id": "AMB015",
+      "driverName": "Satish Chandra",
+      "vehicleNumber": "UP-70-EM-1014",
+      "contact": "+91 9988147766",
+      "type": "ICU",
+      "lat": 25.461583159749843,
+      "lon": 81.87071834017192,
+      "status": "AVAILABLE"
+    }
+  ],
+  "hospitals": [
+    {
+      "id": "HOSP001",
+      "name": "Sanjeevni Emergency Hospital",
+      "area": "Civil Lines",
+      "lat": 25.4505,
+      "lon": 81.831,
+      "contact": "+91 9450000001",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 23,
+      "availableIcuBeds": 10,
+      "totalVentilators": 10,
+      "availableVentilators": 6,
+      "erWaitingTime": 30
+    },
+    {
+      "id": "HOSP002",
+      "name": "Tej Bahadur Sapru (Beli) Hospital",
+      "area": "Katra",
+      "lat": 25.462,
+      "lon": 81.8465,
+      "contact": "+91 9889000002",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 10,
+      "availableIcuBeds": 3,
+      "totalVentilators": 14,
+      "availableVentilators": 2,
+      "erWaitingTime": 72
+    },
+    {
+      "id": "HOSP003",
+      "name": "Kamla Nehru Memorial Hospital",
+      "area": "George Town",
+      "lat": 25.446,
+      "lon": 81.8525,
+      "contact": "+91 9123000003",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 25,
+      "availableIcuBeds": 6,
+      "totalVentilators": 11,
+      "availableVentilators": 1,
+      "erWaitingTime": 96
+    },
+    {
+      "id": "HOSP004",
+      "name": "Motilal Nehru Medical College Hospital",
+      "area": "Tagore Town",
+      "lat": 25.451,
+      "lon": 81.8435,
+      "contact": "+91 9335000004",
+      "emergencyAvailability": "FULL",
+      "isOpen": true,
+      "totalIcuBeds": 18,
+      "availableIcuBeds": 0,
+      "totalVentilators": 6,
+      "availableVentilators": 0,
+      "erWaitingTime": 33
+    },
+    {
+      "id": "HOSP005",
+      "name": "Pratap Hospital & Trauma Center",
+      "area": "Allahapur",
+      "lat": 25.452,
+      "lon": 81.8665,
+      "contact": "+91 9415000005",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 18,
+      "availableIcuBeds": 12,
+      "totalVentilators": 8,
+      "availableVentilators": 5,
+      "erWaitingTime": 48
+    },
+    {
+      "id": "HOSP006",
+      "name": "Swarup Rani Nehru Hospital",
+      "area": "Jhusi",
+      "lat": 25.4365,
+      "lon": 81.9005,
+      "contact": "+91 9935000006",
+      "emergencyAvailability": "LOW",
+      "isOpen": true,
+      "totalIcuBeds": 14,
+      "availableIcuBeds": 1,
+      "totalVentilators": 10,
+      "availableVentilators": 6,
+      "erWaitingTime": 10
+    },
+    {
+      "id": "HOSP007",
+      "name": "Nazareth Hospital",
+      "area": "Phaphamau",
+      "lat": 25.5235,
+      "lon": 81.8595,
+      "contact": "+91 9839000007",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 10,
+      "availableIcuBeds": 5,
+      "totalVentilators": 13,
+      "availableVentilators": 10,
+      "erWaitingTime": 116
+    },
+    {
+      "id": "HOSP008",
+      "name": "Phoenix Hospital",
+      "area": "Naini",
+      "lat": 25.3935,
+      "lon": 81.8635,
+      "contact": "+91 9198000008",
+      "emergencyAvailability": "LOW",
+      "isOpen": true,
+      "totalIcuBeds": 10,
+      "availableIcuBeds": 1,
+      "totalVentilators": 11,
+      "availableVentilators": 3,
+      "erWaitingTime": 73
+    },
+    {
+      "id": "HOSP009",
+      "name": "Vatsalya Hospital",
+      "area": "Chowk",
+      "lat": 25.4405,
+      "lon": 81.8235,
+      "contact": "+91 9305000009",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 10,
+      "availableIcuBeds": 5,
+      "totalVentilators": 10,
+      "availableVentilators": 6,
+      "erWaitingTime": 30
+    },
+    {
+      "id": "HOSP010",
+      "name": "Apex Hospital",
+      "area": "Rajapur",
+      "lat": 25.4655,
+      "lon": 81.8195,
+      "contact": "+91 9889000010",
+      "emergencyAvailability": "LOW",
+      "isOpen": true,
+      "totalIcuBeds": 14,
+      "availableIcuBeds": 2,
+      "totalVentilators": 8,
+      "availableVentilators": 6,
+      "erWaitingTime": 108
+    },
+    {
+      "id": "HOSP011",
+      "name": "Saket Hospital",
+      "area": "Civil Lines",
+      "lat": 25.4535,
+      "lon": 81.835,
+      "contact": "+91 9450000011",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 29,
+      "availableIcuBeds": 3,
+      "totalVentilators": 5,
+      "availableVentilators": 3,
+      "erWaitingTime": 93
+    },
+    {
+      "id": "HOSP012",
+      "name": "Prayag Hospital",
+      "area": "Katra",
+      "lat": 25.465,
+      "lon": 81.85,
+      "contact": "+91 9889000012",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 29,
+      "availableIcuBeds": 10,
+      "totalVentilators": 14,
+      "availableVentilators": 11,
+      "erWaitingTime": 111
+    },
+    {
+      "id": "HOSP013",
+      "name": "Chandra Hospital",
+      "area": "George Town",
+      "lat": 25.449,
+      "lon": 81.856,
+      "contact": "+91 9123000013",
+      "emergencyAvailability": "FULL",
+      "isOpen": true,
+      "totalIcuBeds": 12,
+      "availableIcuBeds": 0,
+      "totalVentilators": 7,
+      "availableVentilators": 0,
+      "erWaitingTime": 93
+    },
+    {
+      "id": "HOSP014",
+      "name": "Alka Hospital",
+      "area": "Tagore Town",
+      "lat": 25.454,
+      "lon": 81.847,
+      "contact": "+91 9335000014",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 29,
+      "availableIcuBeds": 3,
+      "totalVentilators": 5,
+      "availableVentilators": 2,
+      "erWaitingTime": 93
+    },
+    {
+      "id": "HOSP015",
+      "name": "Max Relief Hospital",
+      "area": "Allahapur",
+      "lat": 25.455,
+      "lon": 81.87,
+      "contact": "+91 9415000015",
+      "emergencyAvailability": "FULL",
+      "isOpen": true,
+      "totalIcuBeds": 26,
+      "availableIcuBeds": 0,
+      "totalVentilators": 8,
+      "availableVentilators": 0,
+      "erWaitingTime": 63
+    },
+    {
+      "id": "HOSP016",
+      "name": "Ganga Care Hospital",
+      "area": "Jhusi",
+      "lat": 25.44,
+      "lon": 81.904,
+      "contact": "+91 9935000016",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 14,
+      "availableIcuBeds": 4,
+      "totalVentilators": 6,
+      "availableVentilators": 2,
+      "erWaitingTime": 71
+    },
+    {
+      "id": "HOSP017",
+      "name": "Arogya Hospital",
+      "area": "Phaphamau",
+      "lat": 25.527,
+      "lon": 81.863,
+      "contact": "+91 9839000017",
+      "emergencyAvailability": "FULL",
+      "isOpen": true,
+      "totalIcuBeds": 14,
+      "availableIcuBeds": 0,
+      "totalVentilators": 5,
+      "availableVentilators": 0,
+      "erWaitingTime": 21
+    },
+    {
+      "id": "HOSP018",
+      "name": "United Medicity",
+      "area": "Naini",
+      "lat": 25.397,
+      "lon": 81.867,
+      "contact": "+91 9198000018",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 25,
+      "availableIcuBeds": 19,
+      "totalVentilators": 5,
+      "availableVentilators": 2,
+      "erWaitingTime": 18
+    },
+    {
+      "id": "HOSP019",
+      "name": "Medilink Hospital",
+      "area": "Chowk",
+      "lat": 25.444,
+      "lon": 81.827,
+      "contact": "+91 9305000019",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 23,
+      "availableIcuBeds": 13,
+      "totalVentilators": 5,
+      "availableVentilators": 2,
+      "erWaitingTime": 83
+    },
+    {
+      "id": "HOSP020",
+      "name": "Jeevan Jyoti Hospital",
+      "area": "Rajapur",
+      "lat": 25.469,
+      "lon": 81.823,
+      "contact": "+91 9889000020",
+      "emergencyAvailability": "NORMAL",
+      "isOpen": true,
+      "totalIcuBeds": 14,
+      "availableIcuBeds": 4,
+      "totalVentilators": 11,
+      "availableVentilators": 9,
+      "erWaitingTime": 17
+    }
+  ]
+}
