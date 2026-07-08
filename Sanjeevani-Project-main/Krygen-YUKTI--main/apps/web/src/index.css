@@ -4,135 +4,128 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Neobrutalism Design System ──────────────────────────────── */
+/* ─── Soothing, Minimalist Design System ──────────────────────── */
 
 :root {
-  /* Core Colors - High Contrast */
-  --background: #FFFAF0; /* Warm off-white */
-  --foreground: #000000;
+  /* Core Colors - Gentle, High Readability & Clean Contrast */
+  --background: #F8FAFC; /* Soothing Light Slate White */
+  --foreground: #0F172A; /* Deep Slate (not solid black for readability) */
   
   --card: #FFFFFF;
-  --card-foreground: #000000;
+  --card-foreground: #0F172A;
   
   --popover: #FFFFFF;
-  --popover-foreground: #000000;
+  --popover-foreground: #0F172A;
   
-  --primary: #5C94FF; /* Vibrant Blue */
-  --primary-foreground: #000000;
+  --primary: #0284C7; /* Calm Trustworthy Medical Blue (sky-600) */
+  --primary-foreground: #FFFFFF;
   
-  --secondary: #E0E7FF; /* Light Blue */
-  --secondary-foreground: #000000;
+  --secondary: #E0F2FE; /* Light Sky Blue (sky-100) */
+  --secondary-foreground: #0369A1; /* Dark Sky Blue (sky-700) */
   
-  --muted: #F3F4F6;
-  --muted-foreground: #4B5563;
+  --muted: #F1F5F9; /* Slate 100 */
+  --muted-foreground: #475569; /* Slate 600 */
   
-  --accent: #A3E635; /* Lime/Green Accent */
-  --accent-foreground: #000000;
+  --accent: #0D9488; /* Calm Medical Teal (teal-600) */
+  --accent-foreground: #FFFFFF;
   
-  --destructive: #FF6B6B;
-  --destructive-foreground: #000000;
+  --destructive: #E11D48; /* Soothing Rose/Red (rose-600) */
+  --destructive-foreground: #FFFFFF;
   
-  --border: #000000; /* Bold Black Borders */
+  --border: #E2E8F0; /* Soft Slate Borders (slate-200) */
   --input: #FFFFFF;
-  --ring: #000000;
-  --shadow: #000000; /* Hard Shadow Color */
+  --ring: #0284C7;
+  
+  /* Make all neobrutalist shadows transparent to bypass hard offsets */
+  --shadow: rgba(0, 0, 0, 0); 
 
-  /* Chart colors (Vibrant/Pop) */
-  --chart-1: #5C94FF;
-  --chart-2: #A3E635;
-  --chart-3: #FCD34D;
-  --chart-4: #F472B6;
-  --chart-5: #C084FC;
+  /* Chart colors */
+  --chart-1: #0284C7;
+  --chart-2: #0D9488;
+  --chart-3: #D97706;
+  --chart-4: #E11D48;
+  --chart-5: #7C3AED;
 
-  --radius: 0.5rem; /* Slightly tighter radius */
+  --radius: 0.75rem; /* Friendly Rounded Edges (12px) */
 
   /* Sidebar */
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #5C94FF;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #E0E7FF;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: #000000;
-  --sidebar-ring: #000000;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #0284C7;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E0F2FE;
+  --sidebar-accent-foreground: #0369A1;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #0284C7;
 
-  /* Extended palette - Flat & Vibrant */
-  --emerald: #A3E635; /* Reusing Lime for success */
-  --emerald-light: #ECFCCB;
-  --emerald-foreground: #000000;
+  /* Extended palette - Gentle & Accessible */
+  --emerald: #0D9488; /* Clinical Teal */
+  --emerald-light: #CCFBF1; /* Teal 100 */
+  --emerald-foreground: #115E59;
   
-  --amber: #FCD34D;
+  --amber: #D97706; /* Soothing Orange */
   --amber-light: #FEF3C7;
-  --amber-foreground: #000000;
+  --amber-foreground: #78350F;
   
-  --red: #FF6B6B;
-  --red-light: #FEE2E2;
-  --red-foreground: #000000;
+  --red: #E11D48; /* Gentle Red */
+  --red-light: #FFE4E6;
+  --red-foreground: #9F1239;
   
-  --blue-light: #DBEAFE;
-  --blue-dark: #1E40AF;
+  --blue-light: #E0F2FE;
+  --blue-dark: #0369A1;
 }
 
 .dark {
-  /* Dark mode neobrutalism - usually inverted or just dark grey/black */
-  --background: #121212;
-  --foreground: #FFFFFF;
-  --card: #1E1E1E;
-  --card-foreground: #FFFFFF;
-  --popover: #1E1E1E;
-  --popover-foreground: #FFFFFF;
-  --primary: #5C94FF;
-  --primary-foreground: #000000;
-  --secondary: #2A2A2A;
-  --secondary-foreground: #FFFFFF;
-  --muted: #2A2A2A;
-  --muted-foreground: #A1A1AA;
-  --accent: #A3E635;
-  --accent-foreground: #000000;
-  --destructive: #FF6B6B;
-  --destructive-foreground: #000000;
-  --border: #FFFFFF; /* White borders in dark mode */
-  --input: #2A2A2A;
-  --ring: #FFFFFF;
-  --shadow: #000000; /* Keep shadows black in dark mode for depth, or use #FFFFFF for high contrast inversion? */
-  /* If background is dark (#121212) and card is #1E1E1E, a black shadow (#000) is subtle but visible. 
-     A white shadow looks like a glitch. Let's try keeping shadow black but using white borders. 
-     Or maybe a colored shadow (primary)? */
+  /* Premium Slate-dark design system */
+  --background: #0B0F19; /* Deep Medical Navy/Slate */
+  --foreground: #F1F5F9;
+  --card: #151D30; /* Darker Slate-Navy card */
+  --card-foreground: #F1F5F9;
+  --popover: #151D30;
+  --popover-foreground: #F1F5F9;
   
-  /* Let's try Primary color shadow in dark mode for "Cyberpunk" feel, or just black. 
-     Actually, standard neobrutalism dark mode often uses WHITE borders and NO shadow, or Black shadow.
-     If I use #000000 shadow on #121212 background, it's barely visible.
-     If I use #FFFFFF shadow, it's very strong. 
-     Let's try #FFFFFF shadow but with opacity? No, solid.
-     Let's try a dark grey shadow or stick to black but make borders pop. */
-  --shadow: #000000; 
+  --primary: #0284C7;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1E293B;
+  --secondary-foreground: #F1F5F9;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #0D9488;
+  --accent-foreground: #FFFFFF;
+  --destructive: #E11D48;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #1E293B; /* Slate 800 */
+  --input: #1E293B;
+  --ring: #0284C7;
+  --shadow: rgba(0, 0, 0, 0); 
 
-  --chart-1: #5C94FF;
-  --chart-2: #A3E635;
-  --chart-3: #FCD34D;
-  --chart-4: #F472B6;
-  --chart-5: #C084FC;
+  --chart-1: #0284C7;
+  --chart-2: #0D9488;
+  --chart-3: #D97706;
+  --chart-4: #E11D48;
+  --chart-5: #7C3AED;
 
-  --sidebar: #1E1E1E;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #5C94FF;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #2A2A2A;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #FFFFFF;
-  --sidebar-ring: #FFFFFF;
+  --sidebar: #151D30;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #0284C7;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E293B;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: #1E293B;
+  --sidebar-ring: #0284C7;
 
-  --emerald: #A3E635;
-  --emerald-light: #365314;
-  --emerald-foreground: #FFFFFF;
-  --amber: #FCD34D;
-  --amber-light: #451A03;
-  --amber-foreground: #FFFFFF;
-  --red: #FF6B6B;
-  --red-light: #450A0A;
-  --red-foreground: #FFFFFF;
-  --blue-light: #172554;
-  --blue-dark: #DBEAFE;
+  --emerald: #0D9488;
+  --emerald-light: #115E59;
+  --emerald-foreground: #CCFBF1;
+  --amber: #D97706;
+  --amber-light: #78350F;
+  --amber-foreground: #FEF3C7;
+  --red: #E11D48;
+  --red-light: #9F1239;
+  --red-foreground: #FFE4E6;
+  --blue-light: #0369A1;
+  --blue-dark: #E0F2FE;
 }
 
 @theme inline {
@@ -160,8 +153,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  
-  --color-shadow: var(--shadow); /* New variable mapping */
+  --color-shadow: var(--shadow);
 
   /* Extended Colors */
   --color-emerald: var(--emerald);
@@ -202,200 +194,407 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Typography - Bold & Brutalist */
+  /* Typography - Clean & Modern, high accessibility weights */
   h1 {
     font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    font-weight: 850;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     font-family: var(--font-heading);
   }
   h2 {
     font-size: 1.75rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
     font-family: var(--font-heading);
   }
   h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+    font-size: 1.35rem;
+    font-weight: 750;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
     font-family: var(--font-heading);
   }
 }
 
 @layer utilities {
+  /* Redefine card panels to look premium and minimal, removing neobrutalist borders */
   .glass-panel {
     background: var(--card);
-    border: 2px solid var(--border);
-    box-shadow: 4px 4px 0px 0px var(--shadow);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
 
-  /* Neobrutalist Hard Shadows */
+  /* Redefine shadow utilities to soft drop shadows */
   .shadow-soft {
-    box-shadow: 4px 4px 0px 0px var(--shadow);
-    border: 2px solid var(--border);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border) !important;
   }
   .shadow-soft-md {
-    box-shadow: 6px 6px 0px 0px var(--shadow);
-    border: 2px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border) !important;
   }
   .shadow-soft-lg {
-    box-shadow: 8px 8px 0px 0px var(--shadow);
-    border: 2px solid var(--border);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid var(--border) !important;
   }
 
-  /* Status Pills - Bold Borders */
+  /* Redefine status pills to be borderless and flat-tinted */
   .pill-success {
-    @apply rounded-full bg-emerald-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
-    color: var(--emerald-foreground);
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    border-radius: 9999px !important;
+    padding: 0.125rem 0.625rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(13, 148, 136, 0.15) !important;
+    background-color: var(--emerald-light) !important;
+    color: var(--emerald-foreground) !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .pill-warning {
-    @apply rounded-full bg-amber-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
-    color: var(--amber-foreground);
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    border-radius: 9999px !important;
+    padding: 0.125rem 0.625rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(217, 119, 6, 0.15) !important;
+    background-color: var(--amber-light) !important;
+    color: var(--amber-foreground) !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .pill-danger {
-    @apply rounded-full bg-red-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
-    color: var(--red-foreground);
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    border-radius: 9999px !important;
+    padding: 0.125rem 0.625rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(225, 29, 72, 0.15) !important;
+    background-color: var(--red-light) !important;
+    color: var(--red-foreground) !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .pill-info {
-    @apply rounded-full bg-blue-light px-2.5 py-0.5 text-xs font-bold border-2 border-border;
-    color: var(--blue-dark);
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    border-radius: 9999px !important;
+    padding: 0.125rem 0.625rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(2, 132, 199, 0.15) !important;
+    background-color: var(--blue-light) !important;
+    color: var(--blue-dark) !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .pill-xs {
-    box-shadow: 1px 1px 0px 0px var(--shadow);
+    box-shadow: none !important;
   }
 
-  /* Icon Circles - Bold Borders */
+  /* Icon Circles - Modern Minimalist */
   .icon-circle-blue {
-    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    @apply flex size-10 items-center justify-center rounded-full border border-blue-200/50;
+    box-shadow: none !important;
     background: var(--blue-light);
-    color: var(--primary);
+    color: var(--blue-dark);
   }
   .icon-circle-emerald {
-    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    @apply flex size-10 items-center justify-center rounded-full border border-teal-200/50;
+    box-shadow: none !important;
     background: var(--emerald-light);
     color: var(--emerald-foreground);
   }
   .icon-circle-amber {
-    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    @apply flex size-10 items-center justify-center rounded-full border border-amber-200/50;
+    box-shadow: none !important;
     background: var(--amber-light);
     color: var(--amber-foreground);
   }
   .icon-circle-red {
-    @apply flex size-10 items-center justify-center rounded-full border-2 border-border;
-    box-shadow: 2px 2px 0px 0px var(--shadow);
+    @apply flex size-10 items-center justify-center rounded-full border border-rose-200/50;
+    box-shadow: none !important;
     background: var(--red-light);
     color: var(--red-foreground);
   }
 
-  @keyframes nb-rise-in {
-    from {
-      opacity: 0;
-      transform: translateY(18px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes nb-pop-in {
-    from {
-      opacity: 0;
-      transform: scale(0.96);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .nb-rise {
-    animation: nb-rise-in 0.58s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  }
-
-  .nb-pop {
-    animation: nb-pop-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  }
-
-  .nb-delay-1 {
-    animation-delay: 70ms;
-  }
-
-  .nb-delay-2 {
-    animation-delay: 120ms;
-  }
-
-  .nb-delay-3 {
-    animation-delay: 170ms;
-  }
-
-  .nb-delay-4 {
-    animation-delay: 220ms;
-  }
-
-  /* ─── Premium Neobrutalist Micro-Animations & Utilities ─── */
-  
-  /* Animated Neobrutalist Button */
+  /* Premium minimalist scale/translate transforms */
   .nb-btn-interactive {
-    @apply transition-all duration-150 ease-out;
+    @apply transition-all duration-200 ease-out;
   }
   .nb-btn-interactive:hover:not(:disabled) {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0px 0px var(--shadow) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
   }
   .nb-btn-interactive:active:not(:disabled) {
-    transform: translate(1px, 1px);
-    box-shadow: 3px 3px 0px 0px var(--shadow) !important;
+    transform: translateY(0px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
   }
 
-  /* Animated Neobrutalist Card */
   .nb-card-interactive {
     @apply transition-all duration-200 ease-out;
   }
   .nb-card-interactive:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 8px 8px 0px 0px var(--shadow) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
   }
 
-  /* Flashing Red Emergency Pulse */
-  @keyframes nb-emergency-pulse {
+  /* Fade actions instead of hard borders */
+  @keyframes fade-pulse {
     0%, 100% {
-      box-shadow: 4px 4px 0px 0px var(--shadow);
-      border-color: #000000;
+      opacity: 0.9;
     }
     50% {
-      box-shadow: 6px 6px 0px 0px #FF6B6B;
-      border-color: #FF6B6B;
+      opacity: 1;
     }
   }
 
   .nb-pulse-danger {
-    animation: nb-emergency-pulse 1.5s infinite;
+    animation: fade-pulse 2s infinite;
   }
-
-  /* Rotating Sync Indicator */
-  @keyframes nb-spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
   .nb-rotate-sync {
-    animation: nb-spin-slow 6s linear infinite;
+    animation: spin 6s linear infinite;
   }
 }
 
+/* ─── Global Overrides to force modern clinical layout rules ─── */
+
+/* 1. Thick borders -> thin borders */
+.border-4 {
+  border-width: 1px !important;
+}
+.border-2 {
+  border-width: 1px !important;
+}
+.border-black {
+  border-color: var(--border) !important;
+}
+.border-t-transparent {
+  border-top-color: transparent !important;
+}
+
+/* 2. Sharp corners -> rounded corners */
+.rounded-none {
+  border-radius: var(--radius) !important;
+}
+
+/* 3. Hard offset shadows -> soft drop shadows */
+.shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
+}
+.shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+.shadow-\[4px_4px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+.shadow-\[3px_3px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04) !important;
+}
+.shadow-\[2px_2px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Dark mode offsets override */
+.dark .shadow-\[8px_8px_0px_0px_rgba\(255\,255\,255\,0\.1\)\] {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+.dark .shadow-\[4px_4px_0px_0px_rgba\(255\,255\,255\,0\.1\)\] {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Force rounded corners and thin borders on shadcn buttons globally */
+[data-slot="button"] {
+  border-radius: var(--radius) !important;
+  border-width: 1px !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  transform: none !important;
+  transition: all 0.2s ease !important;
+}
+[data-slot="button"]:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+[data-slot="button"]:active {
+  transform: translateY(0px) !important;
+}
+
+/* Force rounded corners and soft styling on other layout inputs */
+input, textarea, select {
+  border-radius: var(--radius) !important;
+  border-width: 1px !important;
+  border-color: var(--border) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.01) !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--ring) !important;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.1) !important;
+}
+
+/* Bypass hover jumps and offset translations inside JSX inline classes */
+.hover\:translate-x-\[-3px\]:hover {
+  transform: none !important;
+}
+.hover\:translate-y-\[-3px\]:hover {
+  transform: none !important;
+}
+.hover\:shadow-\[8px_8px_0px_0px_var\(--shadow\)\]:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+.hover\:translate-x-\[-1px\]:hover {
+  transform: none !important;
+}
+.hover\:translate-y-\[-1px\]:hover {
+  transform: none !important;
+}
+.hover\:shadow-\[2px_2px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+.active\:translate-x-\[1px\]:active {
+  transform: none !important;
+}
+.active\:translate-y-\[1px\]:active {
+  transform: none !important;
+}
+.active\:shadow-none:active {
+  box-shadow: none !important;
+}
+.shadow-\[5px_5px_0px_0px_var\(--shadow\)\] {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+}
+.shadow-\[5px_5px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Table layout tweaks */
+table {
+  border-collapse: collapse !important;
+}
+th, td {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* ─── Override Hardcoded Hex Colors Globally to match Minimalist Medical Theme ─── */
+
+/* 1. Neon Lime Green (#A3E635) -> Calm Medical Teal (#0D9488) */
+.bg-\[\#A3E635\] {
+  background-color: var(--accent) !important;
+  color: var(--accent-foreground) !important;
+}
+.hover\:bg-lime-400:hover {
+  background-color: #0b7a70 !important; /* Slightly darker teal for hover states */
+  color: #FFFFFF !important;
+}
+.text-\[\#A3E635\] {
+  color: var(--accent) !important;
+}
+.border-\[\#A3E635\] {
+  border-color: var(--accent) !important;
+}
+
+/* 2. Neon Blue (#5C94FF) -> Trustworthy Medical Blue (#0284C7) */
+.bg-\[\#5C94FF\] {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+.text-\[\#5C94FF\] {
+  color: var(--primary) !important;
+}
+.border-\[\#5C94FF\] {
+  border-color: var(--primary) !important;
+}
+
+/* 3. Brutalist Yellow (#FFD166) -> Soft Amber Warning Badge */
+.bg-\[\#FFD166\] {
+  background-color: #FEF3C7 !important; /* soft yellow background */
+  color: #78350F !important; /* brown text */
+}
+.text-\[\#FFD166\] {
+  color: #D97706 !important;
+}
+.border-\[\#FFD166\] {
+  border-color: #FCD34D !important;
+}
+
+/* 4. Brutalist Red (#FF8A8A or #FF6B6B) -> Calm Rose Red Alert */
+.bg-\[\#FF8A8A\], .bg-\[\#FF6B6B\] {
+  background-color: var(--destructive) !important;
+  color: var(--destructive-foreground) !important;
+}
+.text-\[\#FF8A8A\], .text-\[\#FF6B6B\] {
+  color: var(--destructive) !important;
+}
+.border-\[\#FF8A8A\], .border-\[\#FF6B6B\] {
+  border-color: var(--destructive) !important;
+}
+
+/* 5. Cream Yellow Backgrounds (#FFFAF0) -> Soothing Slate-White background */
+.bg-\[\#FFFAF0\] {
+  background-color: var(--background) !important;
+}
+
+/* 6. Dark Grey/Black Cards (#1E1E1E / #121212) -> Premium Navy-Slate dark cards */
+.bg-\[\#1E1E1E\] {
+  background-color: var(--card) !important;
+}
+.bg-\[\#121212\] {
+  background-color: var(--background) !important;
+}
+.bg-\[\#2A2A2A\] {
+  background-color: var(--muted) !important;
+}
+
+/* ─── Handle Arbitrary Opacity Class Overrides ─── */
+.bg-\[\#A3E635\]\/15, .bg-\[\#A3E635\]\/20, .bg-\[\#A3E635\]\/10, .bg-\[\#A3E635\]\/30 {
+  background-color: rgba(13, 148, 136, 0.12) !important;
+  color: #0f766e !important;
+}
+.bg-\[\#5C94FF\]\/20, .bg-\[\#5C94FF\]\/15, .bg-\[\#5C94FF\]\/10, .bg-\[\#5C94FF\]\/30 {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  color: #0369a1 !important;
+}
+.bg-\[\#FFD166\]\/20, .bg-\[\#FFD166\]\/15, .bg-\[\#FFD166\]\/10, .bg-\[\#FFD166\]\/30 {
+  background-color: rgba(217, 119, 6, 0.12) !important;
+  color: #b45309 !important;
+}
+.bg-\[\#FF8A8A\]\/20, .bg-\[\#FF8A8A\]\/15, .bg-\[\#FF8A8A\]\/10, .bg-\[\#FF8A8A\]\/30 {
+  background-color: rgba(225, 29, 72, 0.12) !important;
+  color: #be123c !important;
+}
+
+/* ─── Catch-all overrides to disable any brutalist hover translation and offset shadows ─── */
+[class*="hover:shadow-"]:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
+}
+[class*="hover:translate-"]:hover {
+  transform: none !important;
+}
+[class*="active:translate-"]:active {
+  transform: none !important;
+}
+[class*="active:shadow-"]:active {
+  box-shadow: none !important;
+}
+
+/* Specific button / card states that have hover translates */
+.hover\:translate-x-\[-3px\]:hover,
+.hover\:translate-y-\[-3px\]:hover,
+.hover\:translate-x-\[-1px\]:hover,
+.hover\:translate-y-\[-1px\]:hover,
+.hover\:translate-x-\[1px\]:hover,
+.hover\:translate-y-\[1px\]:hover {
+  transform: none !important;
+}
+
+.hover\:shadow-\[11px_11px_0px_0px_var\(--shadow\)\]:hover,
+.hover\:shadow-\[8px_8px_0px_0px_var\(--shadow\)\]:hover,
+.hover\:shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover,
+.hover\:shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover,
+.hover\:shadow-\[4px_4px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover,
+.hover\:shadow-\[3px_3px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover,
+.hover\:shadow-\[2px_2px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover,
+.hover\:shadow-\[2px_2px_0px_0px_var\(--shadow\)\]:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
+}
