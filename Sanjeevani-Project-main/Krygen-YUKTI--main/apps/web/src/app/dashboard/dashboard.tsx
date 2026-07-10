@@ -321,13 +321,15 @@ export default function Dashboard({ session }: { session: typeof authClient.$Inf
     village: "",
     languagePreference: "",
   });
+
   const [doctorForm, setDoctorForm] = useState({
     specialty: "",
     languagesCsv: "",
     licenseNumber: "",
     licenseDocumentUrl: "",
-    consultationFeePaise: "50000",
+    consultationFeePaise: "500",
   });
+
   const [pharmacyForm, setPharmacyForm] = useState({
     phone: "",
     displayName: "",
@@ -699,8 +701,9 @@ export default function Dashboard({ session }: { session: typeof authClient.$Inf
             .filter(Boolean),
           licenseNumber: doctorForm.licenseNumber || undefined,
           licenseDocumentUrl: doctorForm.licenseDocumentUrl || undefined,
-          consultationFeePaise: Number(doctorForm.consultationFeePaise || "0"),
+          consultationFeePaise: Number(doctorForm.consultationFeePaise || "0") * 100,
         });
+
       }
 
       if (profileRole === "PHARMACY") {
@@ -1152,6 +1155,41 @@ export default function Dashboard({ session }: { session: typeof authClient.$Inf
           <p className="text-sm font-medium text-foreground">{t("auth.roleSelection") === "Select your workspace role" ? "Unable to load your account" : "आपका खाता लोड नहीं हो सका"}</p>
           <p className="text-xs text-muted-foreground">{t("auth.roleSelection") === "Select your workspace role" ? "Please try refreshing the page." : "कृपया पेज रिफ्रेश करें।"}</p>
         </div>
+      </div>
+    );
+  }
+
+  if (me.approvalState === "PENDING") {
+    return (
+      <div className="flex h-full items-center justify-center py-20">
+        <Card className="max-w-md w-full border-2 border-border shadow-soft p-6 text-center">
+          <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-amber-100 text-amber-600 text-3xl">
+            ⏳
+          </div>
+          <CardTitle className="text-xl font-bold text-foreground mb-2">
+            {t("auth.roleSelection") === "Select your workspace role" 
+              ? "Verification Request Submitted" 
+              : "सत्यापन अनुरोध सबमिट किया गया"}
+          </CardTitle>
+          <CardDescription className="text-sm text-muted-foreground mb-4">
+            {t("auth.roleSelection") === "Select your workspace role" 
+              ? "Thank you for completing your profile. Your application has been successfully submitted to the administrator. Once the verification is complete, your workspace will be activated." 
+              : "आपका प्रोफाइल पूरा करने के लिए धन्यवाद। आपका आवेदन व्यवस्थापक को सफलतापूर्वक सबमिट कर दिया गया है। सत्यापन पूरा होने पर आपका कार्यक्षेत्र सक्रिय हो जाएगा।"}
+          </CardDescription>
+          <div className="border border-amber-200/50 bg-amber-500/10 p-3 rounded-xl text-xs font-semibold text-amber-800 dark:text-amber-300">
+            {t("auth.roleSelection") === "Select your workspace role"
+              ? "Verification State: Pending Admin Approval"
+              : "सत्यापन स्थिति: लंबित व्यवस्थापक मंजूरी"}
+          </div>
+          <div className="mt-6 flex justify-center gap-3">
+            <Button variant="outline" onClick={() => void initialize()} className="text-xs">
+              🔄 {t("auth.roleSelection") === "Select your workspace role" ? "Check Status" : "स्थिति जांचें"}
+            </Button>
+            <Button variant="destructive" onClick={() => void authClient.signOut({ onSuccess: () => window.location.href = "/landing" })} className="text-xs">
+              🚪 {t("auth.roleSelection") === "Select your workspace role" ? "Sign Out" : "साइन आउट"}
+            </Button>
+          </div>
+        </Card>
       </div>
     );
   }

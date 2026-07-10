@@ -28,7 +28,7 @@
     "languagesCsv": "Languages (comma separated)",
     "licenseNumber": "License Number",
     "licenseDocUrl": "License Document URL",
-    "consultFee": "Consultation Fee (paise)",
+    "consultFee": "Consultation Fee (₹)",
     "pharmacyName": "Pharmacy Name",
     "regNumber": "Registration Number",
     "regDocUrl": "Registration Document URL"
@@ -131,7 +131,7 @@
       "desc": "Update your specialty, languages, and fees.",
       "specialty": "Specialty",
       "languages": "Languages Spoken (comma separated)",
-      "fee": "Consultation Fee (in Paise)",
+      "fee": "Consultation Fee (in Rupees)",
       "priority": "Enable Emergency Priority Mode"
     }
   },

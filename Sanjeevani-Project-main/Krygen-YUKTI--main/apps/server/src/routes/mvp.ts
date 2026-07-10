@@ -843,7 +843,7 @@ async function runPrescriptionSimplifier(input: z.infer<typeof prescriptionSimpl
   return summary;
 }
 
-async function getActor(c: Context, roles?: UserRole[]): Promise<ActorResult> {
+async function getActor(c: Context, roles?: UserRole[], allowPending = false): Promise<ActorResult> {
   const userId = c.req.header("x-user-id");
   if (!userId) {
     return {
@@ -869,7 +869,7 @@ async function getActor(c: Context, roles?: UserRole[]): Promise<ActorResult> {
     };
   }
 
-  if (role !== "PATIENT" && role !== "ADMIN" && user.approvalState !== "APPROVED") {
+  if (!allowPending && role !== "PATIENT" && role !== "ADMIN" && user.approvalState !== "APPROVED") {
     return {
       error: c.json({ error: "Account pending admin approval" }, 403),
     };
@@ -1206,7 +1206,7 @@ async function runSymptomTriage(input: z.infer<typeof symptomCheckSchema>) {
 const mvpRoute = new Hono();
 
 mvpRoute.get("/me", async (c) => {
-  const actor = await getActor(c);
+  const actor = await getActor(c, undefined, true);
   if ("error" in actor) return actor.error;
 
   const user = await prisma.user.findUnique({
@@ -1280,7 +1280,7 @@ mvpRoute.post("/profiles/doctor", async (c) => {
 
   const payload = await parseBody(c, doctorProfileSchema);
   if ("error" in payload) return payload.error;
-  const approvalState = env.NODE_ENV === "development" ? "APPROVED" : "PENDING";
+  const approvalState = "PENDING";
 
   await prisma.user.update({
     where: { id: actor.user.id },
@@ -1303,11 +1303,10 @@ mvpRoute.post("/profiles/doctor", async (c) => {
 
   return c.json({
     doctor,
-    message:
-      approvalState === "APPROVED"
-        ? "Doctor profile activated (development mode)"
-        : "Doctor profile submitted for admin approval",
+    message: "Doctor profile submitted for admin approval",
   });
+
+
 });
 
 mvpRoute.post("/profiles/pharmacy", async (c) => {
@@ -1316,7 +1315,7 @@ mvpRoute.post("/profiles/pharmacy", async (c) => {
 
   const payload = await parseBody(c, pharmacyProfileSchema);
   if ("error" in payload) return payload.error;
-  const approvalState = env.NODE_ENV === "development" ? "APPROVED" : "PENDING";
+  const approvalState = "PENDING";
 
   await prisma.user.update({
     where: { id: actor.user.id },
@@ -1348,10 +1347,7 @@ mvpRoute.post("/profiles/pharmacy", async (c) => {
 
   return c.json({
     pharmacy,
-    message:
-      approvalState === "APPROVED"
-        ? "Pharmacy profile activated (development mode)"
-        : "Pharmacy profile submitted for admin approval",
+    message: "Pharmacy profile submitted for admin approval",
   });
 });
 
