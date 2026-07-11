@@ -33,7 +33,7 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 const LOCALIZED = {
   en: {
     title: "Sanjeevni",
-    tagline: "Simple Healthcare, Close to Home",
+    tagline: "Health ki smart choice - Sanjeevni restoring lives",
     description: "Sanjeevni makes it easy for village residents to speak with verified doctors, get digital prescriptions, and check local medicine availability, even on weak mobile networks.",
     emergencyBtn: "Emergency Help (SOS)",
     consultBtn: "Talk to a Doctor",
@@ -174,7 +174,7 @@ const LOCALIZED = {
   },
   hi: {
     title: "संजीवनी",
-    tagline: "आसान इलाज, आपके घर के पास",
+    tagline: "हेल्थ की स्मार्ट चॉइस - संजीवनी रीस्टोरिंग लाइव्स",
     description: "संजीवनी के द्वारा गाँव के लोग आसानी से डॉक्टरों से बात कर सकते हैं, डिजिटल पर्चे प्राप्त कर सकते हैं, और कमजोर नेटवर्क होने पर भी आस-पास की दुकानों में दवा का स्टॉक देख सकते हैं।",
     emergencyBtn: "आपातकालीन सहायता (SOS)",
     consultBtn: "डॉक्टर से बात करें",
