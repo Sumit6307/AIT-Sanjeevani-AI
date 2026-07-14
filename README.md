@@ -4,12 +4,6 @@ Sanjeevni is an advanced, high-performance telemedicine platform designed for **
 
 ---
 
-## 🚀 Live Deployments
-
-*   **Frontend (Next.js App)**: [https://sanjeevani-eta.vercel.app](https://sanjeevani-eta.vercel.app)
-*   **Backend (Hono API Server)**: [https://sanjeevani-backend1.onrender.com](https://sanjeevani-backend1.onrender.com)
-
----
 
 ## 🛠️ Technology Stack & Badges
 
