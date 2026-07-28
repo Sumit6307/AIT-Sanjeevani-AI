@@ -1,6 +1,25 @@
 import { env } from "@my-better-t-app/env/web";
 import { useSession, updateClientSession } from "./auth-client-react";
 
+export function getBaseUrl(): string {
+  if (typeof window !== "undefined") {
+    if (env.NEXT_PUBLIC_SERVER_URL && !env.NEXT_PUBLIC_SERVER_URL.includes("localhost")) {
+      return env.NEXT_PUBLIC_SERVER_URL.replace(/\/$/, "");
+    }
+    return window.location.origin;
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  if (env.NEXT_PUBLIC_SERVER_URL && !env.NEXT_PUBLIC_SERVER_URL.includes("localhost")) {
+    return env.NEXT_PUBLIC_SERVER_URL.replace(/\/$/, "");
+  }
+  return "http://localhost:3000";
+}
+
 // Server Component / Client async session fetcher
 async function getSession(
   options?: { fetchOptions?: { headers?: HeadersInit; throw?: boolean } }
@@ -40,7 +59,7 @@ async function getSession(
       }
     }
 
-    const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/session`, {
+    const res = await fetch(`${getBaseUrl()}/api/auth/session`, {
       headers: fetchHeaders,
       credentials: "include",
     });
@@ -86,7 +105,7 @@ const signIn = {
     options?: { onSuccess?: (ctx: any) => void; onError?: (ctx: any) => void }
   ) => {
     try {
-      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/signin/email`, {
+      const res = await fetch(`${getBaseUrl()}/api/auth/signin/email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: data.email, password: data.password }),
@@ -130,7 +149,7 @@ const signUp = {
     options?: { onSuccess?: (ctx: any) => void; onError?: (ctx: any) => void }
   ) => {
     try {
-      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/signup/email`, {
+      const res = await fetch(`${getBaseUrl()}/api/auth/signup/email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -177,8 +196,14 @@ async function signOut(options?: {
   fetchOptions?: { onSuccess?: () => void };
 }) {
   try {
-    await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/sign-out`, {
+    const storedToken = typeof window !== "undefined" ? localStorage.getItem("sanjeevani_session_token") : null;
+    const headers: Record<string, string> = {};
+    if (storedToken) {
+      headers["Authorization"] = `Bearer ${storedToken}`;
+    }
+    await fetch(`${getBaseUrl()}/api/auth/sign-out`, {
       method: "POST",
+      headers,
       credentials: "include",
     });
   } catch {}

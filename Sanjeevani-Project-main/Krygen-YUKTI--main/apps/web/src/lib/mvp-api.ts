@@ -1,4 +1,5 @@
 import { env } from "@my-better-t-app/env/web";
+import { getBaseUrl } from "./auth-client";
 
 type ApiMethod = "GET" | "POST" | "PATCH";
 
@@ -27,7 +28,7 @@ async function request<T>(path: string, options?: ApiRequestOptions): Promise<T>
       : JSON.stringify(options.body);
   }
 
-  const response = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/mvp${path}`, requestInit);
+  const response = await fetch(`${getBaseUrl()}/api/mvp${path}`, requestInit);
 
   const data = (await response.json().catch(() => null)) as { error?: string } | null;
   if (!response.ok) {

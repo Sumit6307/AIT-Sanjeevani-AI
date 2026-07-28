@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { env } from "@my-better-t-app/env/web";
 import z from "zod";
 
-import { authClient } from "@/lib/auth-client";
+import { authClient, getBaseUrl } from "@/lib/auth-client";
 
 import Loader from "./loader";
 import { Button } from "./ui/button";
@@ -41,7 +41,7 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
           throw new Error("Unable to read session for admin setup");
         }
 
-        const response = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/mvp/admin/bootstrap-access`, {
+        const response = await fetch(`${getBaseUrl()}/api/mvp/admin/bootstrap-access`, {
           method: "POST",
           credentials: "include",
           headers: {
