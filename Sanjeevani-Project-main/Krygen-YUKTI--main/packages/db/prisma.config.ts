@@ -1,10 +1,14 @@
 import dotenv from "dotenv";
 import path from "node:path";
-import { defineConfig, env } from "prisma/config";
+import { defineConfig } from "prisma/config";
 
 dotenv.config({
   path: "../../apps/server/.env",
 });
+
+const databaseUrl =
+  process.env.DATABASE_URL ||
+  "postgresql://postgres:postgres@localhost:5432/sanjeevani?schema=public";
 
 export default defineConfig({
   schema: path.join("prisma", "schema"),
@@ -12,6 +16,6 @@ export default defineConfig({
     path: path.join("prisma", "migrations"),
   },
   datasource: {
-    url: env("DATABASE_URL"),
+    url: databaseUrl,
   },
 });
