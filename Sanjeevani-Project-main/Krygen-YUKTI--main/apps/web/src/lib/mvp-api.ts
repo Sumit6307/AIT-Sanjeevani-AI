@@ -11,11 +11,13 @@ type ApiRequestOptions = {
 async function request<T>(path: string, options?: ApiRequestOptions): Promise<T> {
   const method = options?.method ?? "GET";
   const isFormData = typeof FormData !== "undefined" && options?.body instanceof FormData;
+  const storedToken = typeof window !== "undefined" ? localStorage.getItem("sanjeevani_session_token") : null;
   const requestInit: RequestInit = {
     method,
     credentials: "include",
     headers: {
       ...(options?.userId ? { "x-user-id": options.userId } : {}),
+      ...(storedToken ? { Authorization: `Bearer ${storedToken}` } : {}),
       ...(isFormData ? {} : { "Content-Type": "application/json" }),
     },
   };

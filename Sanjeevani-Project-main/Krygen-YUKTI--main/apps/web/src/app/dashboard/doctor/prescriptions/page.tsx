@@ -8,7 +8,7 @@ export default async function DoctorPrescriptionsPage() {
   const session = await authClient.getSession({
     fetchOptions: {
       headers: await headers(),
-      throw: true,
+      throw: false,
     },
   });
 

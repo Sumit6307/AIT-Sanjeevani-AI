@@ -33,6 +33,13 @@ async function getSession(
       }
     }
 
+    if (typeof window !== "undefined" && !fetchHeaders.has("authorization")) {
+      const storedToken = localStorage.getItem("sanjeevani_session_token");
+      if (storedToken) {
+        fetchHeaders.set("Authorization", `Bearer ${storedToken}`);
+      }
+    }
+
     const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/session`, {
       headers: fetchHeaders,
       credentials: "include",

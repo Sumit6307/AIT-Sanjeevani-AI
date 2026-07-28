@@ -15,6 +15,13 @@ export function updateClientSession(user: any, session: any) {
   globalUser = user;
   globalSession = session;
   initialFetched = true;
+  if (typeof window !== "undefined") {
+    if (session?.token) {
+      localStorage.setItem("sanjeevani_session_token", session.token);
+    } else if (user === null) {
+      localStorage.removeItem("sanjeevani_session_token");
+    }
+  }
   notifyListeners();
 }
 
@@ -51,7 +58,14 @@ export function useSession() {
 async function fetchSessionSilent() {
   try {
     const { env } = await import("@my-better-t-app/env/web");
+    const storedToken = typeof window !== "undefined" ? localStorage.getItem("sanjeevani_session_token") : null;
+    const headers: Record<string, string> = {};
+    if (storedToken) {
+      headers["Authorization"] = `Bearer ${storedToken}`;
+    }
+
     const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/session`, {
+      headers,
       credentials: "include",
     });
     if (res.ok) {
@@ -62,6 +76,9 @@ async function fetchSessionSilent() {
       } else {
         globalUser = null;
         globalSession = null;
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("sanjeevani_session_token");
+        }
       }
     } else {
       globalUser = null;

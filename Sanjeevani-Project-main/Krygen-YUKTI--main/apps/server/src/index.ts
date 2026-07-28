@@ -24,6 +24,8 @@ app.use(
   }),
 );
 
+const isProd = env.NODE_ENV === "production";
+
 // Custom Auth Router
 const authRouter = new Hono();
 
@@ -96,8 +98,8 @@ authRouter.post("/signup/email", async (c) => {
     setCookie(c, "sanjeevani_session_id", sessionToken, {
       path: "/",
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: isProd,
+      sameSite: isProd ? "None" : "Lax",
       maxAge: 30 * 24 * 60 * 60, // 30 days
     });
 
@@ -171,8 +173,8 @@ authRouter.post("/signin/email", async (c) => {
     setCookie(c, "sanjeevani_session_id", sessionToken, {
       path: "/",
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: isProd,
+      sameSite: isProd ? "None" : "Lax",
       maxAge: 30 * 24 * 60 * 60, // 30 days
     });
 
@@ -195,7 +197,11 @@ authRouter.post("/signin/email", async (c) => {
 // Session Check Route
 authRouter.get("/session", async (c) => {
   try {
-    const sessionToken = getCookie(c, "sanjeevani_session_id");
+    const sessionToken =
+      getCookie(c, "sanjeevani_session_id") ||
+      c.req.header("authorization")?.replace(/^Bearer\s+/i, "") ||
+      c.req.header("x-session-id");
+
     if (!sessionToken) {
       return c.json(null);
     }
@@ -210,7 +216,11 @@ authRouter.get("/session", async (c) => {
       if (session) {
         await prisma.session.delete({ where: { id: session.id } }).catch(() => {});
       }
-      deleteCookie(c, "sanjeevani_session_id");
+      deleteCookie(c, "sanjeevani_session_id", {
+        path: "/",
+        secure: isProd,
+        sameSite: isProd ? "None" : "Lax",
+      });
       return c.json(null);
     }
 
@@ -237,7 +247,11 @@ authRouter.get("/session", async (c) => {
 // Sign Out Route
 authRouter.post("/sign-out", async (c) => {
   try {
-    const sessionToken = getCookie(c, "sanjeevani_session_id");
+    const sessionToken =
+      getCookie(c, "sanjeevani_session_id") ||
+      c.req.header("authorization")?.replace(/^Bearer\s+/i, "") ||
+      c.req.header("x-session-id");
+
     if (sessionToken) {
       await prisma.session.delete({
         where: { token: sessionToken },
@@ -246,8 +260,8 @@ authRouter.post("/sign-out", async (c) => {
 
     deleteCookie(c, "sanjeevani_session_id", {
       path: "/",
-      secure: true,
-      sameSite: "None",
+      secure: isProd,
+      sameSite: isProd ? "None" : "Lax",
     });
 
     return c.json({ success: true });

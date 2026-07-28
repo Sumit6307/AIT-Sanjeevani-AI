@@ -12,7 +12,7 @@ export default async function DoctorLayout({
   const session = await authClient.getSession({
     fetchOptions: {
       headers: await headers(),
-      throw: true,
+      throw: false,
     },
   });
 
