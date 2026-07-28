@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "my-better-t-app",
-    short_name: "my-better-t-app",
-    description: "my pwa app",
-    start_url: "/new",
+    name: "Sanjeevni AI",
+    short_name: "Sanjeevni",
+    description: "Sanjeevni AI Telemedicine Portal Gateway",
+    start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#000000",
