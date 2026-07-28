@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   async rewrites() {
     const serverUrl = env.NEXT_PUBLIC_SERVER_URL;
+    if (!serverUrl || serverUrl.includes("localhost")) {
+      return [];
+    }
     return [
       {
         source: "/api/auth/:path*",
