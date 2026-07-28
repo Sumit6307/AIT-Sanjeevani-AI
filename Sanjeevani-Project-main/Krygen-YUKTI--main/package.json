@@ -36,6 +36,7 @@
   "devDependencies": {
     "@my-better-t-app/config": "workspace:*",
     "@types/bun": "catalog:",
+    "next": "^16.1.1",
     "turbo": "^2.6.3",
     "typescript": "catalog:"
   },
