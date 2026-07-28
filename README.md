@@ -2,6 +2,7 @@
 
 Sanjeevni is an advanced, high-performance telemedicine platform designed for **real-world healthcare accessibility** in low-bandwidth, multilingual, and medicine-scarce environments. It features a custom **Neobrutalist UI** system designed for high visual contrast and offline accessibility.
 
+---
 
 
 ## 🛠️ Technology Stack & Badges
