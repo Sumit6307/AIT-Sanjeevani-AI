@@ -48,6 +48,14 @@ export default function Header() {
           </nav>
         </div>
         <div className="flex shrink-0 items-center gap-2">
+          <Link
+            href={"/login?role=admin" as Route}
+            className="flex items-center gap-1.5 border-2 border-black bg-amber-400 px-2.5 py-1.5 text-xs font-black uppercase text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-0.5 active:translate-y-0"
+            title="Login as Administrator (admin@admin.com)"
+          >
+            <span>🛡️</span>
+            <span className="hidden xs:inline sm:inline">Admin Login</span>
+          </Link>
           <LanguageSwitcher />
           <ModeToggle />
           <UserMenu />

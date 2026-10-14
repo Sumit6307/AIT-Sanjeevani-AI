@@ -352,10 +352,19 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-3.5">
+            <Link href={"/login?role=admin" as Route}>
+              <button 
+                title="Login as Administrator (admin@admin.com)"
+                className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold text-xs sm:text-sm py-2 px-3 sm:py-2.5 sm:px-4 rounded-xl shadow-sm border border-amber-600 transition-all cursor-pointer flex items-center gap-1.5"
+              >
+                <span>🛡️</span>
+                <span>{isEn ? "Admin Login" : "एडमिन लॉगिन"}</span>
+              </button>
+            </Link>
             <LanguageSwitcher />
             <Link href={"/login" as Route}>
-              <button className="bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm py-2.5 px-5 rounded-xl shadow-sm transition-all cursor-pointer">
+              <button className="bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs sm:text-sm py-2 px-3 sm:py-2.5 sm:px-5 rounded-xl shadow-sm transition-all cursor-pointer">
                 {content.workspaceBtn}
               </button>
             </Link>
