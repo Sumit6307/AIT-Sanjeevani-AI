@@ -3,6 +3,9 @@ import { useSession, updateClientSession } from "./auth-client-react";
 
 export function getBaseUrl(): string {
   if (typeof window !== "undefined") {
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return env.NEXT_PUBLIC_SERVER_URL?.replace(/\/$/, "") || "http://localhost:3000";
+    }
     if (env.NEXT_PUBLIC_SERVER_URL && !env.NEXT_PUBLIC_SERVER_URL.includes("localhost")) {
       return env.NEXT_PUBLIC_SERVER_URL.replace(/\/$/, "");
     }
@@ -14,7 +17,7 @@ export function getBaseUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
-  if (env.NEXT_PUBLIC_SERVER_URL && !env.NEXT_PUBLIC_SERVER_URL.includes("localhost")) {
+  if (env.NEXT_PUBLIC_SERVER_URL) {
     return env.NEXT_PUBLIC_SERVER_URL.replace(/\/$/, "");
   }
   return "http://localhost:3000";
