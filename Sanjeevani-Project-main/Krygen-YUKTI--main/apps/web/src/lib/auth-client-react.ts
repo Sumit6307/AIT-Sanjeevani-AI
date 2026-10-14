@@ -57,14 +57,15 @@ export function useSession() {
 
 async function fetchSessionSilent() {
   try {
-    const { env } = await import("@my-better-t-app/env/web");
+    const { getBaseUrl } = await import("./auth-client");
+    const baseUrl = getBaseUrl();
     const storedToken = typeof window !== "undefined" ? localStorage.getItem("sanjeevani_session_token") : null;
     const headers: Record<string, string> = {};
     if (storedToken) {
       headers["Authorization"] = `Bearer ${storedToken}`;
     }
 
-    const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/auth/session`, {
+    const res = await fetch(`${baseUrl}/api/auth/session`, {
       headers,
       credentials: "include",
     });

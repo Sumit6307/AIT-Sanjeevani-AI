@@ -11,6 +11,9 @@ export function getBaseUrl(): string {
     }
     return window.location.origin;
   }
+  if (env.NEXT_PUBLIC_SERVER_URL && !env.NEXT_PUBLIC_SERVER_URL.includes("localhost")) {
+    return env.NEXT_PUBLIC_SERVER_URL.replace(/\/$/, "");
+  }
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
@@ -128,6 +131,12 @@ const signIn = {
       }
 
       if (typeof window !== "undefined") {
+        if (body.session?.token) {
+          try {
+            document.cookie = `sanjeevani_session_id=${body.session.token}; path=/; max-age=2592000; SameSite=Lax; Secure`;
+            localStorage.setItem("sanjeevani_session_token", body.session.token);
+          } catch {}
+        }
         updateClientSession(body.user, body.session);
       }
       options?.onSuccess?.({
@@ -176,6 +185,12 @@ const signUp = {
       }
 
       if (typeof window !== "undefined") {
+        if (body.session?.token) {
+          try {
+            document.cookie = `sanjeevani_session_id=${body.session.token}; path=/; max-age=2592000; SameSite=Lax; Secure`;
+            localStorage.setItem("sanjeevani_session_token", body.session.token);
+          } catch {}
+        }
         updateClientSession(body.user, body.session);
       }
       options?.onSuccess?.({
@@ -212,6 +227,10 @@ async function signOut(options?: {
   } catch {}
 
   if (typeof window !== "undefined") {
+    try {
+      document.cookie = "sanjeevani_session_id=; path=/; max-age=0; SameSite=Lax; Secure";
+      localStorage.removeItem("sanjeevani_session_token");
+    } catch {}
     updateClientSession(null, null);
   }
 
