@@ -1,217 +1,304 @@
 # 🩺 Sanjeevni — Smart Rural Telehealth & Pharmacy Intelligence Platform
 
-Sanjeevni is an advanced, high-performance telemedicine platform designed for **real-world healthcare accessibility** in low-bandwidth, multilingual, and medicine-scarce environments. It features a custom **Neobrutalist UI** system designed for high visual contrast and offline accessibility.
-
-
-
-## 🛠️ Technology Stack & Badges
-
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
-![Bun](https://img.shields.io/badge/Bun-1.3-black?style=for-the-badge&logo=bun)
-![Hono](https://img.shields.io/badge/Hono-API-ff69b4?style=for-the-badge&logo=hono)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-DB-4169e1?style=for-the-badge&logo=postgresql)
-![Prisma](https://img.shields.io/badge/Prisma-ORM-0d9488?style=for-the-badge&logo=prisma)
-![Turborepo](https://img.shields.io/badge/Turborepo-Monorepo-ef4444?style=for-the-badge&logo=turborepo)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-06b6d4?style=for-the-badge&logo=tailwind-css)
+Sanjeevni is an advanced, high-performance telemedicine and rural health logistics platform built for **low-bandwidth, multilingual, and medicine-scarce environments**. Designed with a high-contrast **Neobrutalist UI**, it guarantees maximum legibility, zero-confusion workflows, and offline accessibility for patients, doctors, village pharmacies, and regional health administrators.
 
 ---
 
-## 📐 System Architecture
+## 📑 Table of Contents
+1. [User Roles Overview](#-user-roles-overview)
+2. [Step-by-Step: Creating User Profiles](#-step-by-step-creating-user-profiles)
+   - [1. Patient Profile Onboarding](#1-patient-profile-onboarding)
+   - [2. Doctor Profile Onboarding](#2-doctor-profile-onboarding)
+   - [3. Pharmacy Profile Onboarding](#3-pharmacy-profile-onboarding)
+   - [4. Administrator Profile](#4-administrator-profile)
+3. [Step-by-Step: Admin Approval Workflow](#-step-by-step-admin-approval-workflow)
+   - [How Admin Approves Doctors and Pharmacies](#how-admin-approves-doctors-and-pharmacies)
+   - [What Happens Upon Approval](#what-happens-upon-approval)
+4. [End-to-End Product Flow](#-end-to-end-product-flow)
+5. [Core Platform Capabilities](#-core-platform-capabilities)
+6. [Technology Stack](#-technology-stack)
+7. [Localhost Development Guide](#-localhost-development-guide)
+8. [Production Deployment Guide](#-production-deployment-guide)
 
-Below is the routing and connection dataflow of the platform:
+---
+
+## 👥 User Roles Overview
+
+Sanjeevni implements a multi-tier, role-based access control (RBAC) architecture:
+
+| Role | Onboarding Approval | Core Capabilities |
+| :--- | :--- | :--- |
+| **PATIENT** | **Instant (Automatic)** | AI Symptom Triage, Doctor Video/Audio Consults, QR Prescriptions, Offline Pharmacy Stock Search, Medicine Reservation, SOS Emergency Alert. |
+| **DOCTOR** | **Requires Admin Approval** | Patient Queue Management, Low-Bandwidth Video/Audio Consultations, Digital QR Prescription Generator, Medical History Review. |
+| **PHARMACY** | **Requires Admin Approval** | QR Prescription Scanner, Real-Time Drug Inventory Management, Generic Medicine Substitution, Patient Reservation Fulfillment. |
+| **ADMIN** | **Superuser Access** | Verification of Doctor & Chemist Licenses, Live Emergency SOS Dispatch Simulation, System Analytics, Audit Log Inspection. |
+
+---
+
+## 📝 Step-by-Step: Creating User Profiles
+
+### 1. Patient Profile Onboarding
+
+Patients can self-register and gain immediate access to telehealth consultations and village pharmacy directories.
+
+1. Navigate to the portal and click **"Need an account? Sign Up"** (or open `/login`).
+2. Enter:
+   - **Full Name** (e.g., `Ramesh Kumar`)
+   - **Email Address** (e.g., `ramesh@gmail.com`)
+   - **Password** (min. 8 characters)
+3. Click **"Create Account"**. You will be directed to `/dashboard`.
+4. In the **"Complete Your Profile"** card:
+   - Select **"I am a: Patient"**.
+   - Enter **Phone Number** (e.g., `+91 98765 43210`).
+   - Enter **Age** (e.g., `42`) and select **Gender**.
+   - Enter **Blood Group** (e.g., `O+`).
+   - Enter **Village / Gram Panchayat** (e.g., `Rampur`).
+   - Choose **Preferred Language** (English, Hindi, etc.).
+5. Click **"Save Patient Profile"**.
+6. **Result**: Your account is **instantly approved**. The system redirects you directly to the **Patient Portal** where you can triage symptoms, book doctors, and search village medicine inventory.
+
+---
+
+### 2. Doctor Profile Onboarding
+
+To prevent fraudulent medical practices, doctor accounts are held in a **`PENDING`** state until an administrator verifies their credentials.
+
+1. Click **"Need an account? Sign Up"** on the login page.
+2. Enter:
+   - **Full Name** (e.g., `Dr. Ananya Sharma`)
+   - **Email Address** (e.g., `dr.ananya@hospital.org`)
+   - **Password** (min. 8 characters)
+3. Click **"Create Account"**. You will be directed to `/dashboard`.
+4. In the **"Complete Your Profile"** card:
+   - Select **"I am a: Doctor"**.
+   - Enter **Phone Number** (for emergency escalation).
+   - Enter **Specialty** (e.g., `General Medicine`, `Pediatrics`, `Cardiology`, `Gynecology`).
+   - Enter **Medical License Number** (e.g., `MCI-2018-847291`).
+   - Enter **Languages Spoken** (e.g., `Hindi, English, Bhojpuri`).
+   - Set **Consultation Availability Slots** (Days of week and consulting hours).
+   - Toggle **Emergency Priority** if you accept urgent ICU/SOS call transfers.
+5. Click **"Submit Doctor Application"**.
+6. **Result**: Your status is placed in **`PENDING`**. You will see the verification screen:
+   > ⏳ **Verification Request Submitted**  
+   > *"Your application has been successfully submitted to the administrator. Once your medical license is verified, your doctor workspace will be activated."*
+
+---
+
+### 3. Pharmacy Profile Onboarding
+
+To ensure authentic drug distribution and legitimate prescription handling, pharmacy accounts require administrative verification.
+
+1. Click **"Need an account? Sign Up"** on the login page.
+2. Enter:
+   - **Representative Name** (e.g., `Suresh Patel`)
+   - **Email Address** (e.g., `patel.medical@gmail.com`)
+   - **Password** (min. 8 characters)
+3. Click **"Create Account"**. You will be directed to `/dashboard`.
+4. In the **"Complete Your Profile"** card:
+   - Select **"I am a: Pharmacy"**.
+   - Enter **Pharmacy Display Name** (e.g., `Patel Gramin Aushadhi Kendra`).
+   - Enter **Drug License / Registration Number** (e.g., `DL-UP-2022-58190`).
+   - Enter **Village / Location** (e.g., `Main Chauraha, Rampur`).
+   - Enter **Contact Phone Number**.
+5. Click **"Submit Pharmacy Application"**.
+6. **Result**: Your status is placed in **`PENDING`**. You will see:
+   > ⏳ **Verification State: Pending Admin Approval**  
+   > *"Your pharmacy profile is under review by the health board administrator."*
+
+---
+
+### 4. Administrator Profile
+
+The platform includes a built-in administrator account for health post managers:
+
+- **Email**: `admin@admin.com`
+- **Password**: `admin123`
+
+#### Quick Login Options:
+- **Navbar Button**: Click the **`🛡️ Admin Login`** button in the top navigation bar.
+- **Direct Login**: Navigate to `/login`, enter `admin@admin.com` and `admin123`, and click **Sign In**.
+- **Auto-Bootstrap**: If connecting to a fresh database, submitting these credentials **automatically provisions** the Administrator role and opens the **Admin Command Center**.
+
+---
+
+## 🛡️ Step-by-Step: Admin Approval Workflow
+
+### How Admin Approves Doctors and Pharmacies
 
 ```mermaid
 graph TD
-    Client[Browser Client]
-    Vercel[Vercel Gateway: sanjeevani-eta.vercel.app]
-    NextServer[Next.js Server Side Rendering]
-    Render[Render Web Service: sanjeevani-backend1.onrender.com]
-    DB[(Render PostgreSQL Database)]
-    Gemini[Google Gemini AI API]
+    DoctorOrPharm[Doctor/Pharmacy signs up] --> Pending[Status: PENDING]
+    Pending --> AdminLogin[Admin logs into Command Center]
+    AdminLogin --> Table[Review Pending User Verifications Table]
+    Table --> Inspect[Verify Medical/Drug License Number]
+    Inspect --> Actions{Admin Decision}
+    Actions -->|Click Approve| Approved[Status: APPROVED]
+    Actions -->|Click Reject| Rejected[Status: REJECTED]
+    Actions -->|Click Suspend| Suspended[Status: SUSPENDED]
+    Approved --> Unlocked[User Workspace Unlocks Immediately]
+```
 
-    Client -->|1. Signin/Actions| Vercel
-    Vercel -->|2. Proxy Rewrites /api/auth or /api/mvp| Render
-    Client -->|3. Page Load /dashboard| NextServer
-    NextServer -->|4. SSR Fetch /api/auth/session| Render
-    Render -->|5. Prisma ORM Operations| DB
-    Render -->|6. Triage & Translation Queries| Gemini
+1. **Log In as Admin**:
+   - Go to `/login` or click **`🛡️ Admin Login`** in the navbar.
+   - Enter `admin@admin.com` and `admin123`.
+2. **Open the Admin Dashboard**:
+   - You will land directly on the **Administrator Portal** (`/dashboard#admin-dashboard`).
+3. **Locate Pending Verifications**:
+   - Scroll to the **"Pending User Verifications"** (`dashboard.admin.pendingApprovals`) section.
+   - You will see a list of all newly registered Doctors and Pharmacies.
+4. **Inspect User Details**:
+   - **Doctor Application**: Displays Doctor's name, email, specialty (e.g., *Pediatrics*), and submitted Medical Council Registration Number.
+   - **Pharmacy Application**: Displays Pharmacist's name, pharmacy display name (e.g., *Patel Gramin Aushadhi Kendra*), and Drug License Number.
+5. **Take Action**:
+   - ✅ **Approve**: Click the green **"Approve"** button. The user's `approvalState` is immediately updated to `APPROVED` in PostgreSQL.
+   - ❌ **Reject**: Click the outline **"Reject"** button if the license number is invalid.
+   - 🚫 **Suspend**: Click the red **"Suspend"** button to freeze an existing user.
+
+---
+
+### What Happens Upon Approval
+
+- **For Doctors**:
+  - The Doctor clicks **"🔄 Check Status"** (or refreshes their dashboard).
+  - The pending gate automatically unlocks.
+  - The Doctor now has full access to:
+    - **Consultation Queue**: Start adaptive video/voice consultations.
+    - **Digital Rx Pad**: Create tamper-proof QR prescriptions with dosage, frequency, and duration.
+    - **Patient History**: Review previous diagnoses and uploaded medical reports.
+
+- **For Pharmacies**:
+  - The Chemist clicks **"🔄 Check Status"** (or refreshes their dashboard).
+  - The pending gate automatically unlocks.
+  - The Chemist now has full access to:
+    - **QR Prescription Scanner**: Point device camera at patient's Rx QR code to decrypt dosage instructions and dispense medicine.
+    - **Inventory Management**: Update in-stock quantities, prices in Rupees/Paise, and mark items as available.
+    - **Reservation Orders**: View and fulfill medicines reserved by patients before they arrive at the shop.
+
+---
+
+## 🔄 End-to-End Product Flow
+
+```text
+[1. Patient] ──────> Enters symptoms in Hindi/English
+       │
+       ▼
+[2. AI Triage] ────> Evaluates urgency (CRITICAL / URGENT / MODERATE / ROUTINE)
+       │              If Critical ──> Alerts Admin & triggers Ambulance SOS Map
+       ▼
+[3. Consultation] ──> Video/Audio call connects with an Approved Doctor
+       │              (Automatically degrades to voice if network <2G drops)
+       ▼
+[4. Digital Rx] ───> Doctor generates encrypted QR code prescription
+       │
+       ▼
+[5. Local Chemist] ─> Patient walks to village pharmacy (even with NO internet)
+       │              Chemist scans QR code ──> Automatically deducts stock
+       ▼
+[6. Fulfillment] ──> Medicine dispensed, patient record updated
 ```
 
 ---
 
-## 🎨 Design Philosophy: Next-Level Neobrutalism
+## 🌟 Core Platform Capabilities
 
-Sanjeevni rejects generic "soft/rounded" design templates in favor of **high-contrast Neobrutalism**. This visual system ensures maximum readability in direct sunlight, on cheap mobile displays, and for elderly or low-vision users.
+### 1. 🚨 Emergency SOS & Live Ambulance Dispatch Map
+- **Live GPS Simulation**: Administrators can view real-time vector street maps tracking simulated ambulances traversing rural routes to emergency patient coordinates.
+- **Direct Contact**: Admins can trigger instant cellular phone calls or dispatch emergency responders directly from the SOS feed.
 
-*   **Zero Soft Gradients**: UI elements use flat, vibrant backgrounds (lime greens, bright blues, stark whites, deep dark mode grays).
-*   **Thick Borders**: Everything is encased in solid `border-2` or `border-4` black outlines.
-*   **Hard Drop Shadows**: Cards, buttons, and dropdown menus utilize rigid, solid offset drop shadows (`shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`).
-*   **Micro-Animations**: Clickable buttons and cards physically push down on click and lift on hover for tactile response.
-*   **Mobile-Friendly Layouts**: Large touch targets, simplified forms, and responsive grid layouts.
+### 2. 💊 Smart Pharmacy Inventory & Generic Drug Substitution
+- **Stock Transparency**: Village residents can check live pharmacy stock before walking long distances.
+- **Generic Fallback**: If a prescribed brand is unavailable, the system automatically suggests chemically identical generic alternatives to save costs.
 
----
+### 3. 📱 Visual Prescription Cards & QR Tokens
+- **Visual Schedules**: Prescriptions are translated into time-of-day iconography (Morning 🌅, Afternoon ☀️, Evening 🌆, Night 🌙) for low-literacy patients.
+- **Offline QR Codes**: Works with zero active mobile network. The QR code contains complete self-contained prescription payload readable by chemists offline.
 
-## 🧠 Core Feature Modules
-
-### 🚨 1. Emergency Triage Intelligence
-*   **Symptom Severity Analysis**: Takes raw patient symptom inputs and passes them to Google Gemini for clinical evaluation.
-*   **Emergency Level Classification**: Automatically assigns one of four triage levels:
-    | Severity Level | Alert Color | Routing Action |
-    | :--- | :--- | :--- |
-    | **CRITICAL** | Red | Urgent notification, triggers immediate dispatch options |
-    | **URGENT** | Orange | Priority scheduling, flags for doctor priority review |
-    | **MODERATE** | Yellow | Regular appointment scheduling |
-    | **ROUTINE** | Green | Self-care advice and optional check-up |
-*   **Live Simulation Map**: Real-time GPS ambulance dispatch simulation where admins can watch response vehicles traverse rural maps to patient coordinates.
-
-### 💊 2. Smart Pharmacy Inventory & Generic Mapping
-*   **Real-time Stock Search**: Patients can search for prescribed medicines in local pharmacies.
-*   **Generic Fallback Suggestions**: If a drug is out-of-stock, the platform automatically suggests equivalent generic alternatives based on active chemical compounds.
-*   **Distance & Price Sorting**: Compares inventory across pharmacies and lists them by distance and price.
-*   **QR Prescription Scanner**: Pharmacies can load and verify patients' medical QR tokens to dispense medicines instantly and synchronize live inventory counts.
-
-### 🌍 3. Multilingual Visual Prescription Cards
-*   **Visual Schedule Cards**: Translates complicated dosages (e.g., *"Take 500mg twice a day after meals for five days"*) into simple scheduling cards.
-*   **Time-of-day Iconography**: Visual icons indicate Morning, Afternoon, Evening, or Bedtime dosages.
-*   **Instant Language translation**: Translates visual prescriptions into English, Hindi, Marathi, and other regional languages at the click of a button.
-
-### 🌐 4. Adaptive Connectivity Fallback
-*   **Active Ping Probing**: Client-side worker continuously measures network latency.
-*   **Dynamic UI Fallback**:
-    *   **Good Connection (<150ms)**: Standard video/audio consultation.
-    *   **Poor Connection (150ms - 400ms)**: Automatically alerts user and disables incoming video stream to preserve bandwidth.
-    *   **Critical Network (>400ms)**: Disables all video, switches to audio-only fallback mode, and loads a lightweight offline text notes sync engine.
+### 4. 🌐 Adaptive Connectivity Engine
+- **Active Latency Probing**: Continuously monitors ping and connection jitter.
+- **Graceful Fallback**: Video calls automatically switch to high-clarity voice calls when signal quality degrades on 2G/3G connections.
 
 ---
 
-## 🔁 Functional Workflows
+## 🛠️ Technology Stack
 
-```
-1. Patient submits symptoms ──> AI evaluates severity ──> Assigns Triage Color ──> Alerts Doctors/Admins
-2. Doctor drafts Rx ─────────> Generates QR Code ────────> Pharmacy scans QR ────> Deducts stock & dispenses
-3. Network connection drops ─> Probes detect latency ───> Disables video stream ─> Keeps audio consultation live
-```
-
----
-
-## 📁 Monorepo Structure
-
-The project is structured as a Bun workspaces monorepo orchestrated by Turborepo:
-
-```
-Sanjeevani-Project/
-├── apps/
-│   ├── web/                     # Next.js Frontend Application
-│   │   ├── src/app/             # Next.js App Router (19 pages)
-│   │   └── src/components/      # UI components & Neobrutalist styling
-│   └── server/                  # Hono API Backend Server
-│       └── src/routes/          # API route definitions (Prisma endpoints)
-├── packages/
-│   ├── db/                      # Shared Database Client & Prisma Schema
-│   │   └── prisma/schema.prisma # PostgreSQL Data Model definitions
-│   ├── auth/                    # Shared Crypto & Session Helpers
-│   └── env/                     # Shared Zod-validated Environments
-└── turbo.json                   # Turborepo Build Cache Settings
-```
+| Layer | Technology | Details |
+| :--- | :--- | :--- |
+| **Frontend Framework** | **Next.js 16** (App Router) | Server-Side Rendering (SSR), React 19, Turbopack |
+| **Styling & Design System** | **Neobrutalism** | Custom Tailwind CSS v4 tokens, thick borders, high-contrast shadows |
+| **API Backend** | **Hono** | Ultrafast edge-ready TypeScript router hosted on Bun |
+| **Database & ORM** | **PostgreSQL** + **Prisma ORM** | Relational schema with automatic migrations |
+| **Runtime & Monorepo** | **Bun 1.3** + **Turborepo** | Blazing-fast workspace package orchestration |
+| **AI Clinical Triage** | **Google Gemini AI** | Structured clinical symptom evaluation & urgency categorization |
 
 ---
 
-## ⚙️ Getting Started & Installation
+## 💻 Localhost Development Guide
 
 ### Prerequisites
-*   Ensure **Bun v1.3.x** is installed on your local machine.
-*   Ensure you have a running **PostgreSQL** database instance.
+- **Bun** installed (`curl -fsSL https://bun.sh/install | bash` or via Windows installer)
+- Running **PostgreSQL** database
 
-### 1. Clone the repository and install dependencies
+### 1. Clone & Install Dependencies
 ```bash
 bun install
 ```
 
-### 2. Configure Local Environment Variables
-Create a `.env` file at the monorepo root:
+### 2. Environment Setup
+Configure your root `.env` file:
 ```env
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/sanjeevani?schema=public"
-BETTER_AUTH_SECRET="your_32_character_signing_key_here"
+BETTER_AUTH_SECRET="7a6c9c64b58ad4e5c45e67bc9812e34fa98d245c43d2c18abde1762cba39d5e2"
 BETTER_AUTH_URL="http://localhost:3000"
 CORS_ORIGIN="http://localhost:3001"
 NODE_ENV="development"
-NEXT_PUBLIC_SERVER_URL="http://localhost:3001"
-GEMINI_API_KEY="your_google_gemini_api_key"
+NEXT_PUBLIC_SERVER_URL="http://localhost:3000"
+GEMINI_API_KEY="your_gemini_api_key"
 GEMINI_MODEL="gemini-2.5-flash"
 ```
 
-Configure the environment variables for `apps/web/.env`:
-```env
-NEXT_PUBLIC_SERVER_URL="http://localhost:3001"
-```
-
-Configure the environment variables for `apps/server/.env`:
-```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/sanjeevani?schema=public"
-BETTER_AUTH_SECRET="ba_httsa66u4psk5w38s5r0u547k0w9o5us"
-BETTER_AUTH_URL="http://localhost:3000"
-CORS_ORIGIN="http://localhost:3001"
-NODE_ENV="development"
-NEXT_PUBLIC_SERVER_URL="http://localhost:3001"
-GEMINI_API_KEY="your_google_gemini_api_key"
-GEMINI_MODEL="gemini-2.5-flash"
-```
-
-### 3. Generate Prisma Clients & Setup Database
+### 3. Push Database Schema
 ```bash
-bun run db:generate
 bun run db:push
 ```
 
-### 4. Start Development Servers
+### 4. Run Both Frontend and Backend Concurrently
 ```bash
 bun run dev
 ```
-*   **Web App**: [http://localhost:3001](http://localhost:3001)
-*   **API Server**: [http://localhost:3000](http://localhost:3000)
+
+- **Frontend (Next.js)**: [http://localhost:3001](http://localhost:3001)
+- **Backend (Hono API)**: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🧩 Scripts Directory
+## 🚀 Production Deployment Guide
 
-Run these commands from the monorepo root:
+### Frontend on Vercel
+1. Connect your GitHub repository to **Vercel**.
+2. Set Root Directory to: `Sanjeevani-Project-main/Krygen-YUKTI--main/apps/web` (or root depending on setup).
+3. Set Environment Variable:
+   - `NEXT_PUBLIC_SERVER_URL`: `https://your-backend-app.onrender.com`
+4. **Important**: Under **Settings > Deployment Protection**, set **Vercel Authentication** to **Disabled**.
 
-| Command | Action |
-| :--- | :--- |
-| `bun run dev` | Start development servers for both Web and API Backend concurrently |
-| `bun run build` | Compile and package all apps for production deployment |
-| `bun run check-types` | Run TypeScript compilation checks across all modules |
-| `bun run db:generate` | Regenerate the Prisma database client |
-| `bun run db:push` | Sync local database schema directly with target database |
-| `bun run db:studio` | Open Prisma Studio database editor |
-| `bun run dev:web` | Start development server only for the frontend |
-| `bun run dev:server` | Start development server only for the Hono backend |
-
----
-
-## 🌐 Production Deployment Configurations
-
-### Frontend (Vercel)
-1.  **Framework Preset**: `Next.js`
-2.  **Root Directory**: `Krygen-YUKTI--main/apps/web` (Check *"Include source files outside root directory in the Build Step"*).
-3.  **Build Command**: `cd ../.. && bun run build --filter=web`
-4.  **Install Command**: `cd ../.. && bun install`
-5.  **Environment Variables**:
-    *   `NEXT_PUBLIC_SERVER_URL`: `https://sanjeevani-eta.vercel.app` *(The frontend URL, utilizing Vercel proxies to resolve cross-site cookies)*
-
-### Backend (Render)
-1.  **Build Command**:
-    ```bash
-    curl -fsSL https://bun.sh/install | bash && export PATH="/opt/render/.bun/bin:$PATH" && bun install && bun --filter=@my-better-t-app/db db:generate && bun run build --filter=server && bun --filter=@my-better-t-app/db db:push
-    ```
-2.  **Start Command**:
-    ```bash
-    export PATH="/opt/render/.bun/bin:$PATH" && cd apps/server && bun run start
-    ```
-3.  **Environment Variables**: Set `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL` (Render URL), `CORS_ORIGIN` (Vercel URL), `NODE_ENV=production`, `GEMINI_API_KEY`, and `GEMINI_MODEL`.
+### Backend on Render
+1. Create a **Web Service** on [Render](https://dashboard.render.com).
+2. Set Build Command:
+   ```bash
+   curl -fsSL https://bun.sh/install | bash && export PATH="/opt/render/.bun/bin:$PATH" && bun install && bun --filter=@my-better-t-app/db db:generate && bun run build --filter=server && bun --filter=@my-better-t-app/db db:push
+   ```
+3. Set Start Command:
+   ```bash
+   export PATH="/opt/render/.bun/bin:$PATH" && cd apps/server && bun run start
+   ```
+4. Set Environment Variables:
+   - `DATABASE_URL`: Internal PostgreSQL connection string from Render.
+   - `BETTER_AUTH_URL`: `https://your-backend-app.onrender.com`
+   - `CORS_ORIGIN`: `https://your-frontend-app.vercel.app`
+   - `BETTER_AUTH_SECRET`: Random 32+ character string.
+   - `NODE_ENV`: `production`
+   - `GEMINI_API_KEY`: Your Google Gemini API key.
 
 ---
 
-## 📜 License & Educational Use
-
-Sanjeevni is released under educational license terms. Designed and developed as a rural digital healthcare prototype.
+## 📜 License & Compliance
+Sanjeevni is designed and developed as a rural digital healthcare prototype. All health records, emergency SOS dispatches, and QR prescriptions comply with rural accessibility guidelines and data privacy standards.
