@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useForm } from "@tanstack/react-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
@@ -29,8 +28,8 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
 
   const form = useForm({
     defaultValues: {
-      email: isAdminParam ? BOOTSTRAP_ADMIN_EMAIL : "",
-      password: isAdminParam ? BOOTSTRAP_ADMIN_PASSWORD : "",
+      email: "",
+      password: "",
     },
     onSubmit: async ({ value }) => {
       const email = value.email.trim();
@@ -133,14 +132,6 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
     },
   });
 
-  useEffect(() => {
-    if (isAdminParam) {
-      form.setFieldValue("email", BOOTSTRAP_ADMIN_EMAIL);
-      form.setFieldValue("password", BOOTSTRAP_ADMIN_PASSWORD);
-      toast.info("Admin credentials autofilled!");
-    }
-  }, [isAdminParam]);
-
   if (isPending) {
     return <Loader />;
   }
@@ -164,34 +155,15 @@ export default function SignInForm({ onSwitchToSignUp }: { onSwitchToSignUp: () 
 
         {/* Form Card */}
         <div className="border-4 border-black bg-white dark:bg-[#1E1E1E] p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] rounded-none">
-          <h2 className="text-xl font-black uppercase tracking-tight text-foreground mb-4 border-b-2 border-black pb-2">
-            {t("auth.signInTitle")}
-          </h2>
-
-          {/* Quick Admin Autofill Banner */}
-          <div className="mb-5 p-3 bg-amber-50 dark:bg-amber-950/40 border-2 border-black dark:border-amber-400 flex items-center justify-between gap-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-            <div className="flex items-center gap-2 text-left">
-              <span className="text-xl">🛡️</span>
-              <div>
-                <p className="text-xs font-black uppercase tracking-wide text-foreground">
-                  Admin Login Access
-                </p>
-                <p className="text-[11px] font-mono text-muted-foreground font-semibold">
-                  admin@admin.com · admin123
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                form.setFieldValue("email", BOOTSTRAP_ADMIN_EMAIL);
-                form.setFieldValue("password", BOOTSTRAP_ADMIN_PASSWORD);
-                toast.success("Admin credentials autofilled! Click Sign In.");
-              }}
-              className="bg-amber-400 hover:bg-amber-500 text-black font-black text-[11px] uppercase tracking-wider py-1.5 px-3 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 cursor-pointer whitespace-nowrap"
-            >
-              Fill Admin
-            </button>
+          <div className="mb-6 border-b-2 border-black pb-2 flex items-center justify-between">
+            <h2 className="text-xl font-black uppercase tracking-tight text-foreground">
+              {isAdminParam ? "Admin Sign In" : t("auth.signInTitle")}
+            </h2>
+            {isAdminParam && (
+              <span className="text-[10px] bg-amber-400 border-2 border-black px-2 py-0.5 text-black font-black uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                Admin Portal
+              </span>
+            )}
           </div>
 
           <form
